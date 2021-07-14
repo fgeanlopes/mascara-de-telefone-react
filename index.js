@@ -4,13 +4,9 @@ export default function Mascara_Telefone_React() {
     const [numero, setNumero] = useState('');
     const handleInputChange = useCallback((e)=>{
         let dig = e.target.value;
-        
-        dig = dig.replace(/\D/g,"");                   //Remove tudo o que não é dígito
-        dig = dig.replace(/^(\d{2})(\d)/g,"($1) $2");  //Coloca parênteses em volta dos dois primeiros dígitos
-        dig = dig.replace(/(\d)(\d{4})$/,"$1-$2");     //Coloca hífen entre o quarto e o quinto dígitos
-    
+        dig = dig.replace(/\D/g,"").replace(/^(\d{2})(\d)/g,"($1) $2").replace(/(\d)(\d{4})$/,"$1-$2");
+
         setNumero(dig)
-    
       },[numero]);
 
       return (
